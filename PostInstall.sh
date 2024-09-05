@@ -14,8 +14,8 @@ flatpak update -y
 #https://github.com/neovim/neovim/blob/master/BUILD.md
 sudo apt-get install ninja-build gettext cmake unzip curl build-essential
 git clone https://github.com/neovim/neovim
-cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo 
-sudo make install 
+cd neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
 
 #Lazy Vim
 git clone https://github.com/LazyVim/starter ~/.config/nvim
@@ -27,7 +27,6 @@ echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/w
 sudo apt update
 sudo apt install wezterm
 
-
 # Install software
 sudo apt install gimp
 sudo apt install tmux
@@ -35,3 +34,19 @@ sudo apt install tmux
 #cd tmux
 #sh autogen.sh
 #./configure && make
+
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |
+  sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+sudo apt-get update
+
+sudo apt-get install docker-compose-plugin
