@@ -1,5 +1,24 @@
 #!/bin/bash
 
+while getopts ":a:p:" opt; do
+  case $opt in
+  a)
+    hostname="$OPTARG"
+    ;;
+  \?)
+    echo "Invalid option -$OPTARG" >&2
+    exit 1
+    ;;
+  esac
+
+  case $OPTARG in
+  -*)
+    echo "Option $opt needs a valid argument"
+    exit 1
+    ;;
+  esac
+done
+
 # Customize terminal
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
@@ -50,3 +69,14 @@ echo \
 sudo dnf update
 
 sudo dnf install docker-compose
+
+#Install I3
+sudo dnf install i3
+
+hostnamectl set-hostname $hostname
+
+#Install Ollama
+curl -fsSL https://ollama.com/install.sh | sh
+
+#enable ssh
+systemctl enable sshd.servicesystemctl enable sshd.service
