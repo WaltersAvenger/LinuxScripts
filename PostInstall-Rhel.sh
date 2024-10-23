@@ -87,3 +87,8 @@ systemctl enable sshd.servicesystemctl enable sshd.service
 #docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
 
 #:docker exec -it ollama ollama run llama2
+
+#FOR Ollama
+curl -s -L https://nvidia.github.io/libnvidia-container/stable/rpm/nvidia-container-toolkit.repo |
+  sudo tee /etc/yum.repos.d/nvidia-container-toolkit.repo
+sudo dnf install -y nvidia-container-toolkit
