@@ -80,3 +80,8 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 #enable ssh
 systemctl enable sshd.servicesystemctl enable sshd.service
+
+#docker ollama
+#docker run -d --gpus=all -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+
+#:docker exec -it ollama ollama run llama2
