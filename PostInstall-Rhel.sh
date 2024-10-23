@@ -68,7 +68,9 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo dnf update
 
+#Install  Docker
 sudo dnf install docker-compose
+sudo dnf install docker
 
 #Install I3
 sudo dnf install i3
