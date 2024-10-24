@@ -69,11 +69,10 @@ echo \
 sudo dnf update
 
 #Install  Docker
-sudo dnf install docker
-
-sudo yum update
-sudo yum install docker-compose-plugin
-
+https://docs.docker.com/engine/install/fedora/#install-using-the-repository
+sudo dnf -y install dnf-plugins-core
+sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 #Install I3
 sudo dnf install i3
 
