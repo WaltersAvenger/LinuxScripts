@@ -69,8 +69,10 @@ echo \
 sudo dnf update
 
 #Install  Docker
-sudo dnf install docker-compose
 sudo dnf install docker
+
+sudo yum update
+sudo yum install docker-compose-plugin
 
 #Install I3
 sudo dnf install i3
